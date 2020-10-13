@@ -1,7 +1,28 @@
 """
-Skewlia
+Skewlia - mergable priority queues
 
-    h = Skewlia.SkewHeap()
+```
+    heap = Skewlia.SkewHeap()
+
+    # Insert one at a time
+    for job in some_list_of_jobs
+        Skewlia.put!(heap, job)
+    end
+
+    # Insert all at once
+    Skewlia.put!(heap, some_list_of_jobs...)
+
+    # Retrieve jobs in order (using <=)
+    while !Skewlia.is_empty(heap)
+        job = Skewlia.get!(heap)
+        do_stuff_with(job)
+    end
+
+    # Or as an iterator
+    for job in heap
+        do-stuff_with(job)
+    end
+```
 
 """
 module Skewlia
@@ -49,6 +70,17 @@ end
 
 Returns an iterator that will sequentially retrieve each item from the heap.
 Adding new items while iterating over the heap is perfectly acceptable.
+
+```
+heap = Skewlia.SkewHeap()
+
+Skewlia.put!("foo", "bar", "baz", "bat")
+
+for abused_string in heap
+    println(abused_string)
+end
+```
+
 """
 function Base.iterate(h::SkewHeap, state=true)
     if is_empty(h)
@@ -121,7 +153,7 @@ end
 
 """    explain(h::SkewHeap)
 
-Prints out the structure of the heap.
+Prints out the structure of the heap for debugging.
 """
 function explain(n::SkewNode, indent)
     print(repeat("  ", indent))
