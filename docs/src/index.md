@@ -2,6 +2,7 @@
 
 Documentation for Skewlia.jl
 
-```@docs
-
+```@autodocs
+Modules = [Skewlia]
+Order   = [:function, :type]
 ```
