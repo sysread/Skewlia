@@ -4,5 +4,5 @@ Documentation for Skewlia.jl
 
 ```@autodocs
 Modules = [Skewlia]
-Order   = [:function, :type]
+Order   = [:module, :type, :function]
 ```
