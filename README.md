@@ -4,7 +4,7 @@ Skewlia is a [skew heap](https://en.wikipedia.org/wiki/Skew_heap) for julia.
 
 # Install
 
-  ] add Skewlia
+    ] add Skewlia
 
 # Documentation
 
